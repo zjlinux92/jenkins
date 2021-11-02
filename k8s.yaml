@@ -4,10 +4,13 @@ metadata:
   name: jenkins-demo
   namespace: default
 spec:
+  selector:
+    matchLabels:
+      app: myapp
   template:
     metadata:
       labels:
-        app: jenkins-demo
+        app: myapp
     spec:
       containers:
       - image: registry.cn-hangzhou.aliyuncs.com/ik9s/jenkins-demo:<BUILD_TAG>
