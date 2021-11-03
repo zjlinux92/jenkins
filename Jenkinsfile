@@ -1,4 +1,11 @@
 node('joker-jnlp') {
+    stage('Clone') {
+    git url: "https://github.com/zjlinux92/jenkins.git"
+    script {
+        build_tag = sh(returnStdout: true, script: 'git rev-parse --short HEAD').trim()
+    }
+    echo "${build_tag}"
+  }    
     stage('Prepare') {
         echo "1.Prepare Stage"
         checkout scm
