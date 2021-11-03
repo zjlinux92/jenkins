@@ -14,13 +14,13 @@ node('joker-jnlp') {
     }
     stage('Build') {
         echo "3.Build Docker Image Stage"
-        sh "docker build -t registry.cn-hangzhou.aliyuncs.com/ik9s/jenkins-demo:${build_tag} ."
+        sh "docker build -t registry.cn-beijing.aliyuncs.com/k8s-zj/jenkins-demo:${build_tag} ."
     }
     stage('Push') {
         echo "4.Push Docker Image Stage"
         withCredentials([usernamePassword(credentialsId: 'AliRegistry', passwordVariable: 'AliRegistryPassword', usernameVariable: 'AliRegistryUser')]) {
             sh "docker login -u ${AliRegistryUser} registry.cn-hangzhou.aliyuncs.com -p ${AliRegistryPassword}"
-            sh "docker push registry.cn-hangzhou.aliyuncs.com/ik9s/jenkins-demo:${build_tag}"
+            sh "docker push registry.cn-beijing.aliyuncs.com/k8s-zj/jenkins-demo:${build_tag}"
         }
     }
     stage('Deploy') {
