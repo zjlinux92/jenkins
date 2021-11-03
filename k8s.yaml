@@ -13,7 +13,7 @@ spec:
         app: myapp
     spec:
       containers:
-      - image: registry.cn-hangzhou.aliyuncs.com/ik9s/jenkins-demo:<BUILD_TAG>
+      - image: registry.cn-beijing.aliyuncs.com/k8s-zj/jenkins-demo:<BUILD_TAG>
         imagePullPolicy: IfNotPresent
         name: jenkins-demo
         env:
