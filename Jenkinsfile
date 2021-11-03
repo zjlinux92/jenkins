@@ -26,7 +26,7 @@ node('joker-jnlp') {
     stage('Push') {
         echo "4.Push Docker Image Stage"
         withCredentials([usernamePassword(credentialsId: 'AliRegistry', passwordVariable: 'AliRegistryPassword', usernameVariable: 'AliRegistryUser')]) {
-            sh "docker login -u ${AliRegistryUser} registry.cn-hangzhou.aliyuncs.com -p ${AliRegistryPassword}"
+            sh "docker login -u ${AliRegistryUser} registry.cn-beijing.aliyuncs.com -p ${AliRegistryPassword}"
             sh "docker push registry.cn-beijing.aliyuncs.com/k8s-zj/jenkins-demo:${build_tag}"
         }
     }
